@@ -11,7 +11,11 @@ export default function Pages() {
 			<Router>
 				<div className="mb-3">{<Menu></Menu>}</div>
 				<Routes>
-					<Route exact path="/" element={<UpcomingMovies />}></Route>
+					<Route
+						exact
+						path="ReactMovieAPI/"
+						element={<UpcomingMovies />}
+					></Route>
 					<Route
 						path="details/:movie_id"
 						element={<InfoMovie />}
