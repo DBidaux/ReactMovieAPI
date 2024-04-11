@@ -16,6 +16,7 @@ export default function Pages() {
 						path="details/:movie_id"
 						element={<InfoMovie />}
 					></Route>
+					<Route path="*" element={<Error />}></Route>
 				</Routes>
 			</Router>
 
