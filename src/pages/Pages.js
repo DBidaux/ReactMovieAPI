@@ -13,7 +13,7 @@ export default function Pages() {
 				<Routes>
 					<Route
 						exact
-						path="ReactMovieAPI/"
+						path="/"
 						element={<UpcomingMovies />}
 					></Route>
 					<Route
