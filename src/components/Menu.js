@@ -9,7 +9,7 @@ export default function Menu() {
 				<h3 className="text-light text-center ">Ejercicio 7</h3>
 				<button
 					className="btn btn-outline-light w-100 mt-3 mb-3"
-					onClick={() => nav(`/`)}
+					onClick={() => nav(`/ReactMovieAPI`)}
 				>
 					Upcoming
 				</button>
