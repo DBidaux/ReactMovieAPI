@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { DUMMY_IMAGE, IMAGE_URL } from "../settings";
 
 export default function Card({ movie }) {
 	const navigate = useNavigate();
 	const handleRedirect = (movieId) => navigate(`/details/${movieId}`);
+	const [isMobile, setIsMobile] = useState(false);
+
+	useEffect(() => {
+		const mediaQuery = window.matchMedia("(max-width: 767.98px)");
+		const refreshIsMobile = (mq) => {
+			setIsMobile(mq.matches);
+		};
+		refreshIsMobile(mediaQuery);
+		mediaQuery.addEventListener("change", refreshIsMobile);
+
+		return () => {
+			mediaQuery.removeEventListener("change", refreshIsMobile);
+		};
+	}, []);
 
 	let src;
 	if (movie.backdrop_path) {
@@ -14,7 +28,7 @@ export default function Card({ movie }) {
 	}
 
 	return (
-		<div className="card flex-grow-1 m-3 shadow-sm">
+		<div className={`card ${isMobile ? "" : "m-3"} flex-grow-1 shadow-sm`}>
 			<img className="card-img-top" src={src} alt="Movie Card" />
 			<div className="card-body">
 				<h3>{movie.title}</h3>

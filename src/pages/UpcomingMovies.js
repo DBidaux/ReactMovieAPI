@@ -7,6 +7,20 @@ import Card from "../components/Card";
 export default function UpcomingMovies() {
 	const [movies, setMovies] = useState([]);
 	const [pages, setPages] = useState({ current: 1, total: 20 });
+	const [isMobile, setIsMobile] = useState(false);
+
+	useEffect(() => {
+		const mediaQuery = window.matchMedia("(max-width: 767.98px)");
+		const refreshIsMobile = (mq) => {
+			setIsMobile(mq.matches);
+		};
+		refreshIsMobile(mediaQuery);
+		mediaQuery.addEventListener("change", refreshIsMobile);
+
+		return () => {
+			mediaQuery.removeEventListener("change", refreshIsMobile);
+		};
+	}, []);
 
 	useEffect(() => {
 		fetch(UPCOMING_URL + "&page=" + pages.current, setMovies)
@@ -33,7 +47,11 @@ export default function UpcomingMovies() {
 				setPages={setPages}
 			></Buscador>
 			<Pagination pages={pages} setPages={setPages}></Pagination>
-			<div className="row row-cols-1 row-cols-md-3">
+			<div
+				className={`row row-cols-1 row-cols-md-3 ${
+					isMobile ? "g-0" : "m-3"
+				}`}
+			>
 				{movies.map((movie) => (
 					<Card movie={movie} key={movie.id} />
 				))}
