@@ -17,6 +17,4 @@ export default function useFetch(url, setState, sameResponse) {
 				console.error("Error fetching data: ", error);
 			});
 	}, [sameResponse, setState, url]);
-
-	return <div></div>;
 }

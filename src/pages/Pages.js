@@ -1,15 +1,16 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import UpcomingMovies from "./UpcomingMovies";
 import InfoMovie from "./InfoMovie";
-import Footer from "../components/Footer";
+
 import Error from "./Error";
 import Menu from "../components/Menu";
+import Footer from "../components/Footer";
 
 export default function Pages() {
 	return (
-		<div className="flex-grow-1 bg-light min-vh-100 d-flex flex-column">
+		<div>
 			<Router>
-				<div className="mb-3">{<Menu></Menu>}</div>
+				<div>{<Menu></Menu>}</div>
 				<Routes>
 					<Route
 						exact
@@ -23,8 +24,6 @@ export default function Pages() {
 					<Route path="*" element={<Error />}></Route>
 				</Routes>
 			</Router>
-
-			<Footer></Footer>
 		</div>
 	);
 }

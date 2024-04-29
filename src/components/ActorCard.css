@@ -1,0 +1,23 @@
+.actor-card {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	transition: 0.3s;
+	width: 25%;
+	border-radius: 5px;
+	color: black;
+	box-sizing: border-box;
+}
+
+.actor-card:hover {
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.actor-card img {
+	border-radius: 5px 5px 0 0;
+}
+
+.actor-name {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	margin: 0;
+}

@@ -1,31 +1,28 @@
 import { useNavigate } from "react-router-dom";
+import "./Menu.css";
 
 export default function Menu() {
 	const nav = useNavigate();
 
+	const handleClick = (e) => {
+		e.preventDefault();
+		nav(`/ReactMovieAPI`);
+	};
 	return (
-		<aside className="flex-shrink-0 bg-dark px-4">
-			<div className="menu">
-				<h3 className="text-light text-center ">Ejercicio 7</h3>
-				<button
-					className="btn btn-outline-light w-100 mt-3 mb-3"
-					onClick={() => nav(`/ReactMovieAPI`)}
-				>
-					Upcoming
-				</button>
-				<a
-					className="btn btn-outline-light w-100 mb-3"
-					href="https://www.imdb.com"
-				>
-					IMDb
-				</a>
-				<a
-					className="btn btn-outline-light w-100 mb-3"
-					href="https://www.themoviedb.org"
-				>
-					The Movie Database
-				</a>
-			</div>
+		<aside>
+			<ul className="menu-horizontal">
+				<li>
+					<a href="#" onClick={handleClick}>
+						Upcoming
+					</a>
+				</li>
+				<li>
+					<a href="https://www.imdb.com">IMDb</a>
+				</li>
+				<li>
+					<a href="https://www.themoviedb.org">The Movie Database</a>
+				</li>
+			</ul>
 		</aside>
 	);
 }

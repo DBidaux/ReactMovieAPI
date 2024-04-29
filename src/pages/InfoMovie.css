@@ -1,0 +1,127 @@
+* {
+	border-radius: 5px;
+	box-sizing: border-box;
+}
+.body {
+}
+.container {
+	display: column;
+	justify-content: space-evenly;
+}
+.link {
+	text-decoration: none;
+}
+a:link {
+	color: #fff;
+}
+a:focus {
+	background: #ccc;
+}
+a:hover {
+	background: #ddd;
+}
+
+.imgBackground {
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: left calc((50vw - 110px) - 400px) top;
+	height: 50vh;
+}
+
+.opaqueOverlay {
+	display: flex;
+	flex: 1;
+	padding: 20px;
+	background: rgb(0, 0, 0);
+	background: linear-gradient(
+		90deg,
+		rgba(0, 0, 0, 1) 0%,
+		rgba(24, 24, 24, 0.9280205655526992) 31%,
+		rgba(87, 87, 87, 0.7634961439588689) 67%,
+		rgba(201, 201, 201, 0.5410363974691439) 100%
+	);
+	height: 50vh;
+}
+
+.poster {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.all-text {
+	color: white;
+	width: 100%;
+	text-align: left;
+	padding-left: 10px;
+	margin-bottom: 2rem;
+}
+.youtube-video {
+	padding-left: 30px;
+}
+.spanBarraCarga {
+	justify-content: center;
+	margin-top: 1rem;
+	height: 5rem;
+}
+
+.badge {
+	width: 100%;
+	background: rgba(153, 153, 153, 0.29820051413881743);
+
+	color: white;
+
+	border-radius: 5px;
+}
+
+.reparto_princ {
+	background-color: white;
+	color: black;
+	height: vmax;
+	width: 85vw;
+	padding: 5vw;
+}
+.slider-container {
+	overflow-x: auto;
+	white-space: nowrap;
+}
+.slider {
+	display: flex;
+}
+.slider-item {
+	flex: 0 0 calc(100% / 4);
+}
+.slider-item img {
+	width: 100%;
+	height: auto;
+}
+.grid-container {
+	display: grid;
+	grid-template-columns: 69% 30%;
+}
+
+.section {
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
+}
+@media (max-width: 768px) {
+	.container {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.poster {
+		width: 100%;
+		margin-bottom: 20px;
+		align-items: center;
+	}
+
+	.all-text {
+		width: 100%;
+		text-align: center;
+		padding-left: 0;
+	}
+}

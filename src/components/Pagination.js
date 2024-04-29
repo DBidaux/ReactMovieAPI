@@ -1,3 +1,4 @@
+import "./Pagination.css";
 export default function Pagination({ pages, setPages }) {
 	const pageRange = (num) => (num ? [...Array(num + 1).keys()].slice(1) : []);
 
@@ -20,10 +21,16 @@ export default function Pagination({ pages, setPages }) {
 	};
 
 	return (
-		<nav className="d-flex justify-content-center mt-3">
-			<ul className="pagination mb-0">
-				<PageButton handler={changePage} text="Previous"></PageButton>
-				<div className="d-none d-md-flex">
+		<div className="pagination-container">
+			<nav>
+				<ul>
+					<li>
+						<PageButton
+							handler={changePage}
+							text="Previous"
+						></PageButton>
+					</li>
+
 					{pageRange(pages.total).map((page) => {
 						return (
 							<PageButton
@@ -34,19 +41,26 @@ export default function Pagination({ pages, setPages }) {
 							/>
 						);
 					})}
-				</div>
-				<PageButton handler={changePage} text="Next"></PageButton>
-			</ul>
-		</nav>
+
+					<li>
+						<PageButton
+							handler={changePage}
+							text="Next"
+						></PageButton>
+					</li>
+				</ul>
+			</nav>
+		</div>
 	);
 }
 
 function PageButton({ handler, text, active }) {
 	return (
-		<li className={`page-item ${active && "active"}`}>
-			<button onClick={handler} className="page-link">
-				{text}
-			</button>
-		</li>
+		<button
+			onClick={handler}
+			className={`page-item ${active ? "active" : ""}`}
+		>
+			{text}
+		</button>
 	);
 }
