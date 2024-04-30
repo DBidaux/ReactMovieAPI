@@ -1,14 +1,8 @@
 .menu-horizontal {
+	color: white;
 	display: flex;
 	list-style-type: none;
-	background: rgb(0, 0, 0);
-	background: linear-gradient(
-		180deg,
-		rgba(0, 0, 0, 0.8020565552699228) 0%,
-		rgba(0, 0, 0, 0.5) 30%,
-		rgba(0, 0, 0, 0.5) 70%,
-		rgba(0, 0, 0, 0.7994858611825193) 100%
-	);
+
 	padding: 0;
 	height: 50px;
 	justify-content: center;
@@ -46,13 +40,13 @@
 
 .menu-horizontal li a:hover,
 .menu-horizontal li a:focus {
-	background: rgb(0, 0, 0);
+	background: rgb(208, 8, 8);
 	background: linear-gradient(
 		180deg,
-		rgba(0, 0, 0, 0.5989717223650386) 0%,
-		rgba(0, 0, 0, 0.29820051413881743) 30%,
-		rgba(0, 0, 0, 0.30077120822622105) 70%,
-		rgba(0, 0, 0, 0.6015424164524421) 100%
+		rgba(208, 8, 8, 1) 0%,
+		rgba(0, 0, 0, 0) 25%,
+		rgba(0, 0, 0, 0) 75%,
+		rgba(208, 8, 8, 1) 100%
 	);
 	width: 100%;
 	height: 100%;

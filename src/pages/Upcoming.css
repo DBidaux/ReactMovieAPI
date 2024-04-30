@@ -1,3 +1,6 @@
 .container-upcoming {
 	min-height: 100vh;
 }
+.upcoming-title {
+	color: #fff;
+}

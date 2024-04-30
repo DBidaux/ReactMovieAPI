@@ -27,7 +27,7 @@ export default function UpcomingMovies() {
 
 	return (
 		<div className="container-upcoming">
-			<h1>Upcoming Movies</h1>
+			<h1 className="upcoming-title">Upcoming Movies (React based)</h1>
 			<Buscador
 				movies={movies}
 				setMovies={setMovies}

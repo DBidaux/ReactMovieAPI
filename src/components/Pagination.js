@@ -22,15 +22,15 @@ export default function Pagination({ pages, setPages }) {
 
 	return (
 		<div className="pagination-container">
-			<nav>
-				<ul>
-					<li>
-						<PageButton
-							handler={changePage}
-							text="Previous"
-						></PageButton>
-					</li>
+			<ul>
+				<li>
+					<PageButton
+						handler={changePage}
+						text="Previous"
+					></PageButton>
+				</li>
 
+				<div className="pagination-buttons">
 					{pageRange(pages.total).map((page) => {
 						return (
 							<PageButton
@@ -41,15 +41,12 @@ export default function Pagination({ pages, setPages }) {
 							/>
 						);
 					})}
+				</div>
 
-					<li>
-						<PageButton
-							handler={changePage}
-							text="Next"
-						></PageButton>
-					</li>
-				</ul>
-			</nav>
+				<li>
+					<PageButton handler={changePage} text="Next"></PageButton>
+				</li>
+			</ul>
 		</div>
 	);
 }
