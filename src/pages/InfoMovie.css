@@ -1,74 +1,69 @@
-* {
-	box-sizing: border-box;
+.info-movie-container {
+	min-height: 800px;
 }
-
-.container {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-evenly;
-	align-items: center; /* Agregado para centrar el contenido horizontalmente */
-}
-
-.link {
+a {
 	text-decoration: none;
-}
-
-a:link {
 	color: #fff;
 }
-
-a:focus {
-	background: #ccc;
-}
-
-a:hover {
-	background: #ddd;
-}
-
 a:visited {
-	color: White;
+	color: #000;
 }
-
-.imgBackground {
+.info-movie-background-image {
+	box-shadow: inset 0 0 0 1000px #c2939581;
+	background-position: center;
 	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: left calc((50vw - 110px) - 400px) top;
-	height: 50vh;
+	width: 100%;
 }
 
-.opaqueOverlay {
+.movie-image-details {
+	width: auto;
+	height: 600px;
+	border-radius: 10px;
+}
+
+.movie-details-content {
 	display: flex;
-	flex: 1;
-	padding: 20px;
-	background: rgb(0, 0, 0);
-	background: linear-gradient(
-		90deg,
-		rgba(0, 0, 0, 1) 0%,
-		rgba(24, 24, 24, 0.9280205655526992) 31%,
-		rgba(87, 87, 87, 0.7634961439588689) 67%,
-		rgba(201, 201, 201, 0.5410363974691439) 100%
-	);
-	height: 50vh;
+	gap: 20px;
+	padding: 50px 100px;
+	min-height: 600px;
 }
 
-.poster {
-	flex: 1;
+.info-movie-details-text {
+	padding-top: 10px;
 	display: flex;
 	flex-direction: column;
-	align-items: center; /* Agregado para centrar el contenido horizontalmente */
-	padding-right: 20px;
-}
-
-.all-text {
+	justify-content: space-between;
 	color: white;
-	width: 100%;
 	text-align: left;
-	margin-bottom: 2rem;
+	height: 100%;
+}
+.info-movie-vote-average {
+	padding-top: 1rem;
+}
+.movie-details-text h2 {
+	display: inline;
+}
+.movie-details-text h5 {
+	margin: 0;
+}
+.movie-details-text p {
+	margin: 0;
 }
 
-.youtube-video {
-	padding-left: 30px;
+.info-movie-details-facts {
+	display: block;
+	padding-top: 25px;
 }
+
+.dots {
+	font-size: 10px;
+}
+
+.info-movie-tag {
+	font-size: 1.1em;
+	margin: 15px 0px;
+}
+
 .container-extra-info {
 	display: grid;
 	grid-template-columns: 2fr 1fr 0fr;
@@ -123,23 +118,31 @@ a:visited {
 	height: 100%;
 }
 
-@media (max-width: 768px) {
-	.container {
+@media only screen and (max-width: 1200px) {
+	.movie-details-content {
+		padding: 50px 50px;
+	}
+	.movie-details-text {
+		padding: 0;
+	}
+	.image-details {
+		height: 600px;
+	}
+	.ul-crew {
+		width: 90%;
+	}
+}
+@media only screen and (max-width: 800px) {
+	.movie-details-content {
 		flex-direction: column;
-		align-items: center;
-	}
-	.other-info-titles {
-		color: white;
-	}
-	.poster {
-		width: 100%;
-		margin-bottom: 20px;
-		align-items: center;
-	}
-
-	.all-text {
-		width: 100%;
 		text-align: center;
-		padding-left: 0;
+	}
+}
+
+@media only screen and (max-width: 550px) {
+	.movie-info-container {
+		padding: 20px 10px 20px 30px;
+		grid-template-columns: 1fr;
+		width: 100%;
 	}
 }

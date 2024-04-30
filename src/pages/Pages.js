@@ -24,7 +24,6 @@ export default function Pages() {
 					<Route path="*" element={<Error />}></Route>
 				</Routes>
 			</Router>
-			<Footer></Footer>
 		</div>
 	);
 }

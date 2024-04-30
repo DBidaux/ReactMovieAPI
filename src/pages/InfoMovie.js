@@ -55,50 +55,61 @@ export default function InfoMovie() {
 
 	const placeholderURL =
 		"https://via.placeholder.com/974x450.png?text=Placeholder+Image";
-	const imgOriginal = {
-		backgroundImage: movie.backdrop_path
-			? `url(${IMAGE_ORIGINAL_URL + movie.backdrop_path})`
-			: `url(${placeholderURL})`,
-	};
+
 	const releaseYear = movie.release_date;
 	const year = new Date(releaseYear).getFullYear();
 
 	const POSTER_IMAGE = MINI_IMAGE + movie.poster_path;
 
+	console.log(movie.runtime);
+
+	const runTime = movie.runtime;
+	const hours = Math.floor(runTime / 60);
+	const minutes = ((runTime / 60 - hours) * 60).toFixed(0);
+	const runtime = `${hours}h ${minutes}m`;
+
 	return (
-		<div className="container">
-			<div className="imgBackground" style={imgOriginal}>
-				<div className="opaqueOverlay">
-					<div className="poster">
-						<img
-							src={POSTER_IMAGE}
-							alt=""
-							placeholder="https://via.placeholder.com/300x450.png?text=Placeholder+Image"
-						/>
-					</div>
-					<div className="all-text">
-						<h2>
-							<a className="link" href={IMDB_URL + movie.imdb_id}>
-								{movie.title}
-							</a>
-							<span>({year})</span>
-						</h2>
+		<div className="info-movie-container">
+			<div
+				className="info-movie-background-image"
+				style={{
+					backgroundImage: movie.backdrop_path
+						? `url(${IMAGE_ORIGINAL_URL + movie.backdrop_path})`
+						: `url(${placeholderURL})`,
+				}}
+			>
+				<div className="movie-details-content">
+					<img
+						className="movie-image-details"
+						src={POSTER_IMAGE}
+						alt=""
+						placeholder="https://via.placeholder.com/300x450.png?text=Placeholder+Image"
+					/>
+					<div className="info-movie-details-text">
 						<div>
-							<h6>
-								{movie.release_date} -<strong>Géneros: </strong>
-								{concatGenres}
-							</h6>
-						</div>
-						<b>Vote average:</b>
+							<h1>
+								<a href={IMDB_URL + movie.imdb_id}>
+									{movie.title}{" "}
+								</a>
+								<span>({year})</span>
+							</h1>
 
-						<BarraCarga voteAverage={movie.vote_average} />
-
-						<div className="all-text">
-							<h4>{movie.tagline}</h4>
-							<p>
-								<b>Sinopsis:</b>
-							</p>
-							<p>{movie.overview}</p>
+							<span className="info-movie-details-facts">
+								{movie.release_date} -{" "}
+								<strong>Géneros: </strong>
+								{concatGenres} - {runtime}
+							</span>
+							<div className="info-movie-vote-average">
+								<b>Vote average:</b>
+								<BarraCarga voteAverage={movie.vote_average} />
+							</div>
+							<div>
+								<h2 className="info-movie-tag">
+									{movie.tagline}
+								</h2>
+								<h4>Sinopsis</h4>
+								<p>{movie.overview}</p>
+							</div>
 						</div>
 					</div>
 				</div>
