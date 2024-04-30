@@ -43,9 +43,7 @@ a:visited {
 .movie-details-text h2 {
 	display: inline;
 }
-.movie-details-text h5 {
-	margin: 0;
-}
+
 .movie-details-text p {
 	margin: 0;
 }
@@ -53,10 +51,6 @@ a:visited {
 .info-movie-details-facts {
 	display: block;
 	padding-top: 25px;
-}
-
-.dots {
-	font-size: 10px;
 }
 
 .info-movie-tag {
@@ -121,15 +115,6 @@ a:visited {
 @media only screen and (max-width: 1200px) {
 	.movie-details-content {
 		padding: 50px 50px;
-	}
-	.movie-details-text {
-		padding: 0;
-	}
-	.image-details {
-		height: 600px;
-	}
-	.ul-crew {
-		width: 90%;
 	}
 }
 @media only screen and (max-width: 800px) {

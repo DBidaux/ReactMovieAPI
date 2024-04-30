@@ -1,18 +1,6 @@
 .footer {
-	background-color: grey;
-	border-radius: 0;
+	background-color: rgba(231, 181, 181, 0.8);
+	height: 100px;
+	position: absolute;
 	width: 100%;
-	height: 6vh;
-	position: sticky;
-	bottom: 0;
-
-	font-size: 20px;
-	padding: 5px 10px;
-}
-
-@media screen and (max-width: 768px) {
-	.footer {
-		position: static;
-		bottom: 0;
-	}
 }
