@@ -6,7 +6,7 @@ actualYear = new Date().getFullYear();
 
 export default function Footer() {
 	return (
-		<footer class=" footer d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+		<footer class=" footer d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
 			<div class="col-md-4 d-flex align-items-center">
 				<a
 					href="/"

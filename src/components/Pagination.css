@@ -19,6 +19,7 @@
 	display: block;
 	padding: 5px 10px;
 	border: 1px solid #f55077;
+	background-color: rgba(245, 187, 187, 0.8);
 	border-radius: 0.25rem;
 	text-decoration: none;
 	color: #000000;

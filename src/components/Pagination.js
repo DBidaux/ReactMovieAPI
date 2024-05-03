@@ -5,7 +5,7 @@ export default function Pagination({ pages, setPages }) {
 	const changePage = (e) => {
 		let nextPage;
 		switch (e.target.textContent) {
-			case "Previous":
+			case "Prev":
 				nextPage = pages.current - 1;
 				break;
 			case "Next":
@@ -20,33 +20,69 @@ export default function Pagination({ pages, setPages }) {
 		}
 	};
 
-	return (
-		<div className="pagination-container">
-			<ul>
-				<li>
+	const renderPageButtons = () => {
+		const totalPages = pages.total;
+		const currentPage = pages.current;
+
+		let buttons = [];
+
+		buttons.push(
+			<li key="prev">
+				<PageButton handler={changePage} text="Prev"></PageButton>
+			</li>
+		);
+
+		if (currentPage > 2) {
+			buttons.push(
+				<li key="first">
+					<PageButton handler={changePage} text="1"></PageButton>
+				</li>
+			);
+		}
+
+		if (currentPage > 3) {
+			buttons.push(<li key="left-ellipsis">...</li>);
+		}
+
+		for (let i = currentPage - 1; i <= currentPage + 1; i++) {
+			if (i >= 1 && i <= totalPages) {
+				buttons.push(
+					<li key={i}>
+						<PageButton
+							handler={changePage}
+							text={i}
+							active={i === currentPage}
+						></PageButton>
+					</li>
+				);
+			}
+		}
+
+		if (currentPage < totalPages - 2) {
+			buttons.push(<li key="right-ellipsis">...</li>);
+		}
+
+		if (currentPage < totalPages - 1) {
+			buttons.push(
+				<li key="last">
 					<PageButton
 						handler={changePage}
-						text="Previous"
+						text={totalPages}
 					></PageButton>
 				</li>
+			);
+		}
+		buttons.push(
+			<li key="Next">
+				<PageButton handler={changePage} text="Next"></PageButton>
+			</li>
+		);
+		return buttons;
+	};
 
-				<div className="pagination-buttons">
-					{pageRange(pages.total).map((page) => {
-						return (
-							<PageButton
-								key={page}
-								handler={changePage}
-								text={page}
-								active={page === pages.current}
-							/>
-						);
-					})}
-				</div>
-
-				<li>
-					<PageButton handler={changePage} text="Next"></PageButton>
-				</li>
-			</ul>
+	return (
+		<div className="pagination-container">
+			<ul>{renderPageButtons()}</ul>
 		</div>
 	);
 }

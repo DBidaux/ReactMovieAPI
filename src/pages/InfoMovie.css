@@ -130,4 +130,10 @@ a:visited {
 		grid-template-columns: 1fr;
 		width: 100%;
 	}
+	.trivia {
+		display: none;
+	}
+	.container-extra-info {
+		display: block;
+	}
 }

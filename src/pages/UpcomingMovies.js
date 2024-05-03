@@ -7,13 +7,16 @@ import "./Upcoming.css";
 
 export default function UpcomingMovies() {
 	const [movies, setMovies] = useState([]);
-	const [pages, setPages] = useState({ current: 1, total: 20 });
+	const [pages, setPages] = useState({ current: 1, total: undefined });
 
 	useEffect(() => {
 		fetch(UPCOMING_URL + "&page=" + pages.current, setMovies)
 			.then((r) => r.json())
 			.then((data) => {
+				console.log(data.total_pages);
+
 				setMovies(data.results.slice(0, 21));
+
 				if (!pages.total) {
 					setPages((prevPages) => {
 						return {
